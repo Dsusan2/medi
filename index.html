@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Data Pasien Medisora</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="medi.css">
+  <script src="medi.js" defer></script>
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <nav 
+    class="sidebar flex flex-col w-64 min-h-screen p-6 space-y-6 select-none"
+    role="navigation" aria-label="Main navigation"
+  >
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="title">MEDISORA</h1>
+      <button id="btn-sidebar-toggle" aria-label="Toggle main menu" class="md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-2 overflow-y-auto">
+      <button class="nav-link" data-menu="dashboard" tabindex="0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        Dashboard
+      </button>
+      <button class="nav-link" data-menu="laki" tabindex="0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2a5 5 0 00-5 5v1a3 3 0 006 0V7a5 5 0 00-1-3.874V2zM9 9a1 1 0 10-2 0 1 1 0 002 0zM8 14h2v6H8v-6z"/>
+        </svg>
+        Pasien Laki-Laki
+      </button>
+      <button class="nav-link" data-menu="perempuan" tabindex="0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2a5 5 0 00-5 5v1a3 3 0 006 0V7a5 5 0 00-1-3.874V2zM14 9a1 1 0 10-2 0 1 1 0 002 0zM13 14h2v6h-2v-6z"/>
+        </svg>
+        Pasien Perempuan
+      </button>
+      <button class="nav-link" data-menu="anak" tabindex="0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 17s1-3 4-3 4 3 4 3"/>
+        </svg>
+        Pasien Anak-Anak
+      </button>
+      <button class="nav-link" data-menu="ibuhamil" tabindex="0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8a4 4 0 014 4v3.5a1.5 1.5 0 11-3 0V12a1 1 0 00-2 0v4.5a1.5 1.5 0 11-3 0V12a4 4 0 014-4z"/>
+        </svg>
+        Pasien Ibu Hamil
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 p-8 overflow-auto">
+    <section id="dashboard" class="menu-section hidden">
+      <h2 class="section-title">Dashboard</h2>
+      <p class="section-description">Selamat datang di halaman dashboard Medisora. Pilih menu pasien untuk mengelola data pasien sesuai kategori.</p>
+      <img 
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/aab1ce33-df46-47db-9668-c82145a62ae8.png" 
+        alt="Ilustrasi profesional medis di klinik dengan latar berwarna terang dan ikon kesehatan" 
+        class="mt-10 rounded-lg border border-gray-300 shadow-md max-w-full" 
+        onerror="this.style.display='none'"
+      />
+    </section>
+
+    <section id="laki" class="menu-section hidden">
+      <HeaderPasien title="Pasien Laki-Laki" />
+      <PatientsTable category="laki" />
+    </section>
+
+    <section id="perempuan" class="menu-section hidden">
+      <HeaderPasien title="Pasien Perempuan" />
+      <PatientsTable category="perempuan" />
+    </section>
+
+    <section id="anak" class="menu-section hidden">
+      <HeaderPasien title="Pasien Anak-Anak" />
+      <PatientsTable category="anak" />
+    </section>
+
+    <section id="ibuhamil" class="menu-section hidden">
+      <HeaderPasien title="Pasien Ibu Hamil" />
+      <PatientsTable category="ibuhamil" />
+    </section>
+
+    <section id="riwayat" class="menu-section hidden">
+      <div id="riwayat-content" class="p-6">
+        
+      </div>
+
+      <button id="btn-kembali" class="bg-gray-500 text-white px-3 py-1 rounded mt-4">Kembali</button>
+    </section>
+    
+  </main>
+
+</body>
+</html>
